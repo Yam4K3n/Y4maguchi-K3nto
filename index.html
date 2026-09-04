@@ -63,6 +63,15 @@
   html{
     scroll-behavior: smooth;
   }
+  /* ============================================================
+     スマートフォンでの横スクロール（横方向のはみ出し）防止
+     ・100vw は使わず、html/body 自体の横幅超過を防ぐ
+     ・縦方向のスクロールには影響しない
+  ============================================================= */
+  html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   body{
     margin: 0;
     background: var(--white);
@@ -71,10 +80,12 @@
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* 想定より長い英字・見出しがあっても、画面外へはみ出さず折り返す */
+    overflow-wrap: break-word;
   }
   img{ max-width: 100%; display: block; }
   a{ color: inherit; text-decoration: none; }
-  h1,h2,h3,p,ul{ margin: 0; }
+  h1,h2,h3,p,ul,figure{ margin: 0; }
   ul{ padding: 0; list-style: none; }
 
   .en{
@@ -823,6 +834,31 @@
     html{ scroll-behavior: auto; }
     .reveal{ opacity: 1; transform: none; transition: none; }
   }
+  /* ============================================================
+     横スクロール対策（続き）
+     grid / flex コンテナの子要素は、初期値のままだと
+     中の文章の長さぶんだけ幅が広がり、はみ出す原因になることがあるため、
+     縮んで折り返せるように min-width: 0 を指定する
+  ============================================================= */
+  .about-grid > *,
+  .card-grid > *,
+  .stats-grid > *,
+  .records-grid > *,
+  .timeline,
+  .timeline-item,
+  .timeline-item > *,
+  .timeline-marker,
+  .timeline-content,
+  .hero-actions > *,
+  .contact-links > *,
+  .about-tags,
+  .about-tags > *,
+  .record-body,
+  .stat-card,
+  .activity-card{
+    min-width: 0;
+  }
+
 </style>
 </head>
 <body>
@@ -1020,8 +1056,8 @@
         <p class="stat-label">TikTok総再生数</p>
       </div>
       <div class="stat-card reveal">
-        <p class="stat-num en">100人越え</p>
-        <p class="stat-label">規模の音楽イベントを複数主催</p>
+        <p class="stat-num en">100人以上</p>
+        <p class="stat-label">規模の音楽イベントを複数回主催</p>
       </div>
     </div>
     <p class="stats-note">※上記は地域おこし協力隊着任前の活動を含む、個人としての実績です。</p>
