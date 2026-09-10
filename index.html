@@ -9,7 +9,7 @@
   ▼▼▼ 内容に応じて自由に書き換えてください ▼▼▼
 ============================================================= -->
 <title>山口健斗 ポートフォリオ｜中標津町 地域おこし協力隊</title>
-<meta name="description" content="北海道中標津町で活動する地域おこし協力隊・山口健斗（KENTO YAMAGUCHI）のポートフォリオサイト。写真・動画制作、SNS発信、取材、イベント企画・運営など地域の魅力を伝える活動を紹介しています。">
+<meta name="description" content="北海道中標津町で活動する地域おこし協力隊・山口健斗（KENTO YAMAGUCHI）のポートフォリオサイト。写真・動画制作、SNS発信、取材、イベント企画・運営、Webサイト制作など地域の魅力を伝える活動を紹介しています。">
 <meta name="robots" content="index, follow">
 
 <!-- 正規URL（公開URLが決まったため設定済み） -->
@@ -240,7 +240,7 @@
   .nav-toggle[aria-expanded="true"] span::before{ transform: translateY(6px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span::after{ transform: translateY(-6px) rotate(-45deg); }
 
-  @media (max-width: 860px){
+  @media (max-width: 1050px){
     .nav-links{
       position: fixed;
       top: 68px; left: 0; right: 0;
@@ -458,6 +458,72 @@
     color: var(--white);
   }
   .about-tags li span{ color: var(--accent); }
+
+  /* ============================================================
+     現在取り組んでいること（NOW）
+  ============================================================= */
+  .now-card{
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 40px;
+  }
+  @media (max-width: 600px){
+    .now-card{ padding: 28px 22px; }
+  }
+  .now-project-label{
+    font-family: "Oswald", sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    margin-bottom: 10px;
+  }
+  .now-title{
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 900;
+    margin-bottom: 18px;
+  }
+  .now-desc{
+    max-width: 62ch;
+    color: var(--gray-600);
+    font-size: 15.5px;
+    line-height: 1.9;
+    margin-bottom: 26px;
+  }
+  .now-list{
+    list-style: none;
+    margin: 0 0 30px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+  }
+  @media (max-width: 600px){
+    .now-list{ grid-template-columns: 1fr; }
+  }
+  .now-list li{
+    position: relative;
+    padding-left: 20px;
+    font-size: 14.5px;
+    color: var(--black);
+    line-height: 1.6;
+  }
+  .now-list li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+  }
+  .now-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
 
   /* ============================================================
      MY STORY（経歴・ストーリー / タイムライン）
@@ -887,35 +953,90 @@
     color: var(--gray-200);
     font-size: 15.5px;
   }
-  .contact-links{
+  /* スクリーンリーダー向けの読み上げ専用テキスト（画面には表示しない） */
+  .visually-hidden{
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .contact-card{
+    background: var(--white);
+    color: var(--black);
+    border-radius: var(--radius);
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 44px 40px;
+    text-align: center;
+  }
+  @media (max-width: 480px){
+    .contact-card{ padding: 34px 22px; }
+  }
+  .contact-card-icon{
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--black);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-  }
-  .contact-link{
-    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 24px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,.25);
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .contact-card-icon svg{ width: 26px; height: 26px; stroke: var(--accent); }
+  .contact-card-title{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .contact-email{
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(15px, 4.2vw, 18px);
+    font-weight: 700;
+    color: var(--gray-600);
+    word-break: break-all;
+    overflow-wrap: break-word;
+    margin-bottom: 30px;
+  }
+  .contact-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contact-btn{
+    width: 100%;
+    justify-content: center;
     font-size: 14.5px;
-    transition: border-color .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
   }
-  .contact-link:hover{
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .contact-link svg{ width: 18px; height: 18px; stroke: currentColor; transition: transform .3s var(--ease); }
-  .contact-link:hover svg{ transform: scale(1.15) rotate(-6deg); }
-  .contact-link.mail{
+  .contact-btn svg{ width: 18px; height: 18px; stroke: currentColor; flex-shrink: 0; }
+  .contact-btn--primary{
     background: var(--accent);
     color: var(--black);
     border-color: var(--accent);
+    font-weight: 700;
   }
-  .contact-link.mail:hover{ background: var(--accent-dark); border-color: var(--accent-dark); color: var(--black); }
+  .contact-btn--primary::before{ content: none; }
+  .contact-btn--primary:hover{
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    color: var(--black);
+    transform: translateY(-2px);
+  }
+  .contact-btn--secondary{
+    background: var(--gray-50);
+    color: var(--black);
+    border-color: var(--gray-200);
+    font-weight: 700;
+  }
+  .contact-btn--secondary::before{ content: none; }
+  .contact-btn--secondary:hover{
+    border-color: var(--accent-dark);
+    color: var(--accent-dark);
+    transform: translateY(-2px);
+  }
 
   /* ============================================================
      フッター
@@ -962,19 +1083,23 @@
   .stats-grid > *,
   .works-grid > *,
   .sns-grid > *,
+  .now-list > *,
+  .now-actions > *,
   .timeline,
   .timeline-item,
   .timeline-item > *,
   .timeline-marker,
   .timeline-content,
   .hero-actions > *,
-  .contact-links > *,
+  .contact-actions > *,
   .about-tags,
   .about-tags > *,
   .record-body,
   .stat-card,
   .activity-card,
-  .sns-card{
+  .sns-card,
+  .now-card,
+  .contact-card{
     min-width: 0;
   }
 
@@ -990,6 +1115,7 @@
     <a href="#top" class="brand">HOME</a>
     <nav class="nav-links" id="navLinks">
       <a href="#about">自己紹介</a>
+      <a href="#now">現在の活動</a>
       <a href="#story">これまでの歩み</a>
       <a href="#activities">活動内容</a>
       <a href="#achievements">実績</a>
@@ -1051,7 +1177,37 @@
           <li><span>#</span>写真撮影</li>
           <li><span>#</span>音楽活動</li>
           <li><span>#</span>イベント企画</li>
+          <li><span>#</span>Webサイト制作</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  現在取り組んでいること（NOW）
+  ▼▼▼ プロジェクト名・説明文・項目・SNSリンクは、実際の内容に合わせて書き換えてください ▼▼▼
+============================================================= -->
+<section class="section-pad bg-alt" id="now">
+  <div class="wrap">
+    <p class="eyebrow en reveal">Now</p>
+    <h2 class="section-title reveal">現在取り組んでいること</h2>
+
+    <div class="now-card reveal">
+      <p class="now-project-label en">Project</p>
+      <h3 class="now-title">中標津浦島物語</h3>
+      <p class="now-desc">東京・首都圏で約10年間活動した山口健斗が、ふるさと中標津をあらためて巡り、この10年で変化したところと、変わらない魅力を見つけて発信する地域発信プロジェクトです。食、景色、人、体験を、TikTokやInstagramを通して物語として届けていきます。</p>
+
+      <ul class="now-list">
+        <li>地域のお店や人への取材</li>
+        <li>中標津の景色や体験の動画制作</li>
+        <li>TikTok・Instagramでの情報発信</li>
+        <li>地域事業者との企画づくり</li>
+      </ul>
+
+      <div class="now-actions">
+        <a class="btn sns-link" href="https://www.tiktok.com/@nakashibetsu_story" target="_blank" rel="noopener noreferrer">TikTokで見る</a>
+        <a class="btn sns-link" href="https://www.instagram.com/nakashibetsu_story/" target="_blank" rel="noopener noreferrer">Instagramで見る</a>
       </div>
     </div>
   </div>
@@ -1112,15 +1268,15 @@
   <div class="wrap">
     <p class="eyebrow en reveal">Activities</p>
     <h2 class="section-title reveal">活動内容</h2>
-    <p class="activities-lead reveal">「“伝わる中標津”をつくる地域発信プロジェクト」をテーマに、写真・動画・SNS・イベントを通じた魅力発信に取り組んでいます。</p>
+    <p class="activities-lead reveal">「“伝わる中標津”をつくる地域発信プロジェクト」をテーマに、Webサイト・写真・動画・SNS・イベントを通じた魅力発信に取り組んでいます。</p>
 
     <div class="card-grid">
       <div class="activity-card reveal">
         <div class="activity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 8h18"/><path d="M9 21h6M12 17v4"/></svg>
         </div>
-        <h3>写真・動画制作</h3>
-        <p>地域の人・お店・風景を、写真と映像で丁寧に切り取り発信します。</p>
+        <h3>Webサイト制作・公開</h3>
+        <p>地域のお店や活動の魅力が伝わるWebサイトを、情報整理・構成・文章作成・スマートフォン対応・公開まで一貫して制作します。</p>
       </div>
 
       <div class="activity-card reveal">
@@ -1128,7 +1284,15 @@
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a2 2 0 0 0 2 2h1l4 4V5L6 9H5a2 2 0 0 0-2 2z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a9 9 0 0 1 0 12"/></svg>
         </div>
         <h3>SNS情報発信</h3>
-        <p>TikTok・Instagram・Xなどを通じて、地域の魅力をタイムリーに発信します。</p>
+        <p>TikTok・Instagramなどを通じて、地域の魅力をタイムリーに発信します。</p>
+      </div>
+
+      <div class="activity-card reveal">
+        <div class="activity-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        </div>
+        <h3>写真・動画制作</h3>
+        <p>地域の人・お店・風景を、写真と映像で丁寧に切り取り発信します。</p>
       </div>
 
       <div class="activity-card reveal">
@@ -1204,7 +1368,7 @@
         <div class="record-body">
           <p class="record-date">制作年：2026年</p>
           <h3>アミューズメントバー GLOW 公式Webサイト制作</h3>
-          <p>北海道中標津町のアミューズメントバー「GLOW」の公式Webサイトを制作しました。店舗での写真撮影、掲載情報の整理、サイト構成、文章作成、スマートフォン対応、GitHub Pagesでの公開まで担当。約60種類のボードゲームや料金、店内の雰囲気が分かりやすく伝わるサイトを目指しました。</p>
+          <p>北海道中標津町のアミューズメントバー「GLOW」の公式Webサイトを制作しました。店舗での写真撮影、掲載情報の整理、サイト構成、文章作成、スマートフォン対応、GitHub Pagesでの公開まで担当。63種類のボードゲームや料金、店内の雰囲気が分かりやすく伝わるサイトを目指しました。</p>
 
           <ul class="about-tags">
             <li><span>#</span>Webサイト制作</li>
@@ -1249,7 +1413,7 @@
 <section class="section-pad" id="sns">
   <div class="wrap">
     <p class="eyebrow en reveal">Social Media</p>
-    <h2 class="section-title reveal">中標津田舎物語を発信中</h2>
+    <h2 class="section-title reveal">中標津浦島物語を発信中</h2>
     <p class="sns-lead reveal">地域おこし協力隊・山口健斗が運営する、中標津の魅力発信プロジェクトです。食、景色、人、体験などを通して、町外の「行きたい」と町民の「教えたい」が生まれる発信を目指しています。</p>
 
     <div class="sns-grid">
@@ -1262,7 +1426,7 @@
         </div>
         <p class="sns-platform en">TikTok</p>
         <p class="sns-handle en">@nakashibetsu_story</p>
-        <p class="sns-desc">中標津の魅力を、物語形式の短い動画で発信します。地域を巡りながら見つけた、変わった場所と変わらない良さを届けます。</p>
+        <p class="sns-desc">中標津の魅力を、物語形式の短い動画で発信します。地域を巡りながら見つけた、変化したところと、変わらない良さを届けます。</p>
         <a class="btn sns-link" href="https://www.tiktok.com/@nakashibetsu_story" target="_blank" rel="noopener noreferrer">TikTokを見る</a>
       </div>
 
@@ -1286,18 +1450,39 @@
   <div class="wrap">
     <p class="eyebrow en reveal">Contact</p>
     <h2 class="section-title reveal">お問い合わせ</h2>
-    <p class="contact-lead reveal">取材・地域連携・イベント等のご相談はこちら</p>
+    <p class="contact-lead reveal">取材・地域連携・イベント・Webサイト制作など、お気軽にご相談ください。</p>
 
-    <!-- ▼▼▼ メール・SNSリンクの差し替え箇所 ▼▼▼
-         href="" の中の内容を、実際のメールアドレス／SNS ID に変更してください
+    <!-- ▼▼▼ メールアドレスの差し替え箇所（3箇所あります）▼▼▼
+         ・下の「yamakenton@gmail.com」の表示テキスト
+         ・mailto: の後ろのアドレス
+         ・GmailのリンクにあるURLの to= の後ろのアドレス
+         を、実際のメールアドレスに変更してください
     -->
-    <div class="contact-links reveal">
-      <a class="contact-link mail" href="mailto:yamakenton@gmail.com">
+    <div class="contact-card reveal">
+      <div class="contact-card-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        Email
-      </a>
+      </div>
+      <p class="contact-card-title">メールでお問い合わせ</p>
+      <p class="contact-email">yamakenton@gmail.com</p>
+
+      <div class="contact-actions">
+        <a class="btn contact-btn contact-btn--primary" href="mailto:yamakenton@gmail.com?subject=Web%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8B%E3%82%89%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          メールアプリで送る
+        </a>
+        <a class="btn contact-btn contact-btn--secondary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=yamakenton@gmail.com&amp;su=Web%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8B%E3%82%89%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h8v8"/><path d="M8 16 16 8"/></svg>
+          Gmailで送る
+        </a>
+        <button type="button" class="btn contact-btn contact-btn--secondary" id="copyEmailBtn" data-email="yamakenton@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/></svg>
+          <span id="copyEmailLabel">アドレスをコピー</span>
+        </button>
+      </div>
+
+      <p id="copyEmailStatus" class="visually-hidden" role="status" aria-live="polite"></p>
     </div>
-    <!-- ▲▲▲ メール・SNSリンクの差し替え箇所ここまで ▲▲▲ -->
+    <!-- ▲▲▲ メールアドレスの差し替え箇所ここまで ▲▲▲ -->
   </div>
 </section>
 
@@ -1372,6 +1557,67 @@
       });
     }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
     spySections.forEach(sec => spyIO.observe(sec));
+  }
+
+  // お問い合わせ：メールアドレスをクリップボードへコピー
+  const copyEmailBtn = document.getElementById('copyEmailBtn');
+  if (copyEmailBtn) {
+    const copyEmailLabel = document.getElementById('copyEmailLabel');
+    const copyEmailStatus = document.getElementById('copyEmailStatus');
+    const defaultLabel = copyEmailLabel.textContent;
+    const successLabel = 'コピーしました！';
+    let resetTimer = null;
+
+    // クリップボードAPIが使えない古いブラウザ向けの代替コピー方法
+    const legacyCopy = (text) => {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.top = '-1000px';
+      textarea.style.left = '-1000px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      textarea.setSelectionRange(0, textarea.value.length);
+      let succeeded = false;
+      try {
+        succeeded = document.execCommand('copy');
+      } catch (err) {
+        succeeded = false;
+      }
+      document.body.removeChild(textarea);
+      return succeeded;
+    };
+
+    const announce = (message) => {
+      // 同じ文言が続いても読み上げられるよう、一度空にしてから設定する
+      copyEmailStatus.textContent = '';
+      window.setTimeout(() => { copyEmailStatus.textContent = message; }, 30);
+    };
+
+    const showResult = (succeeded) => {
+      if (resetTimer) window.clearTimeout(resetTimer);
+      if (succeeded) {
+        copyEmailLabel.textContent = successLabel;
+        announce('メールアドレスをコピーしました');
+      } else {
+        announce('コピーできませんでした。お手数ですが手動でコピーしてください');
+      }
+      resetTimer = window.setTimeout(() => {
+        copyEmailLabel.textContent = defaultLabel;
+      }, 2200);
+    };
+
+    copyEmailBtn.addEventListener('click', () => {
+      const email = copyEmailBtn.getAttribute('data-email') || '';
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email)
+          .then(() => showResult(true))
+          .catch(() => showResult(legacyCopy(email)));
+      } else {
+        showResult(legacyCopy(email));
+      }
+    });
   }
 </script>
 </body>
