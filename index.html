@@ -524,6 +524,42 @@
     flex-wrap: wrap;
     gap: 14px;
   }
+  .now-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 700px){
+    .now-grid{ grid-template-columns: 1fr; }
+  }
+  .now-icon{
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .now-icon svg{ width: 24px; height: 24px; stroke: var(--accent); }
+  /* 相談ボタンは蛍光イエローの .sns-link を再利用、GLOWボタンは黒を基調にした専用スタイル */
+  .now-link-secondary{
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+    font-weight: 700;
+  }
+  .now-link-secondary::before{ content: none; }
+  .now-link-secondary:hover{
+    background: var(--white);
+    color: var(--black);
+    border-color: var(--black);
+    transform: translateY(-2px);
+  }
+  @media (max-width: 700px){
+    .now-actions--support .btn{
+      width: 100%;
+      justify-content: center;
+    }
+  }
 
   /* ============================================================
      MY STORY（経歴・ストーリー / タイムライン）
@@ -1141,6 +1177,7 @@
   .stats-grid > *,
   .works-grid > *,
   .sns-grid > *,
+  .now-grid > *,
   .now-list > *,
   .now-actions > *,
   .timeline,
@@ -1251,21 +1288,38 @@
     <p class="eyebrow en reveal">Now</p>
     <h2 class="section-title reveal">現在取り組んでいること</h2>
 
-    <div class="now-card reveal">
-      <p class="now-project-label en">Project</p>
-      <h3 class="now-title">中標津浦島物語</h3>
-      <p class="now-desc">東京・首都圏で約10年間活動した山口健斗が、ふるさと中標津をあらためて巡り、この10年で変化したところと、変わらない魅力を見つけて発信する地域発信プロジェクトです。食、景色、人、体験を、TikTokやInstagramを通して物語として届けていきます。</p>
+    <div class="now-grid">
+      <div class="now-card reveal">
+        <p class="now-project-label en">Project</p>
+        <h3 class="now-title">中標津浦島物語</h3>
+        <p class="now-desc">東京・首都圏で約10年間活動した山口健斗が、ふるさと中標津をあらためて巡り、この10年で変化したところと、変わらない魅力を見つけて発信する地域発信プロジェクトです。食、景色、人、体験を、TikTokやInstagramを通して物語として届けていきます。</p>
 
-      <ul class="now-list">
-        <li>地域のお店や人への取材</li>
-        <li>中標津の景色や体験の動画制作</li>
-        <li>TikTok・Instagramでの情報発信</li>
-        <li>地域事業者との企画づくり</li>
-      </ul>
+        <ul class="now-list">
+          <li>地域のお店や人への取材</li>
+          <li>中標津の景色や体験の動画制作</li>
+          <li>TikTok・Instagramでの情報発信</li>
+          <li>地域事業者との企画づくり</li>
+        </ul>
 
-      <div class="now-actions">
-        <a class="btn sns-link" href="https://www.tiktok.com/@nakashibetsu_story" target="_blank" rel="noopener noreferrer">TikTokで見る</a>
-        <a class="btn sns-link" href="https://www.instagram.com/nakashibetsu_story/" target="_blank" rel="noopener noreferrer">Instagramで見る</a>
+        <div class="now-actions">
+          <a class="btn sns-link" href="https://www.tiktok.com/@nakashibetsu_story" target="_blank" rel="noopener noreferrer">TikTokで見る</a>
+          <a class="btn sns-link" href="https://www.instagram.com/nakashibetsu_story/" target="_blank" rel="noopener noreferrer">Instagramで見る</a>
+        </div>
+      </div>
+
+      <div class="now-card reveal">
+        <div class="now-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 8h18"/><path d="M9 21h6M12 17v4"/></svg>
+        </div>
+        <p class="now-project-label en">Support</p>
+        <h3 class="now-title">Webサイト制作サポート</h3>
+        <p class="now-desc">中標津町内の個人・店舗・事業者を対象に、魅力や情報が伝わるWebサイトを制作しています。掲載情報の整理、サイト構成、文章作成、スマートフォン対応、公開まで一緒にサポートします。</p>
+        <p class="now-desc">現在、地域での制作実績づくりの一環として、制作費無料でご相談を受け付けています。内容やスケジュールによってはお受けできない場合があります。独自ドメインや有料サービスなどの実費が必要な場合は、事前にご案内します。</p>
+
+        <div class="now-actions now-actions--support">
+          <a class="btn now-link-secondary" href="https://yam4k3n.github.io/glow-amusement/" target="_blank" rel="noopener noreferrer">制作したGLOW公式サイトを見る <span aria-hidden="true">↗</span></a>
+          <a class="btn sns-link" href="mailto:yamakenton@gmail.com?subject=Web%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E7%9B%B8%E8%AB%87">無料制作について相談する</a>
+        </div>
       </div>
     </div>
   </div>
