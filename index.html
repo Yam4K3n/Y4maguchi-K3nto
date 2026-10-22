@@ -562,6 +562,69 @@
   }
 
   /* ============================================================
+     最新の発信（Instagram最新投稿の自動表示エリア）
+  ============================================================= */
+  .now-stories{
+    margin-top: 48px;
+    padding-top: 44px;
+    border-top: 1px solid var(--gray-200);
+  }
+  @media (max-width: 600px){
+    .now-stories{ margin-top: 36px; padding-top: 32px; }
+  }
+  .now-stories-label{
+    font-family: "Oswald", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    margin-bottom: 10px;
+  }
+  .now-stories-title{
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 900;
+    margin-bottom: 24px;
+  }
+  /* 埋め込みコード未貼り付けの間は中身が空のため、何も表示せず高さも持たない */
+  .now-stories-feed:empty{ display: none; }
+  .now-stories-feed{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 700px){
+    .now-stories-feed{ grid-template-columns: 1fr; }
+  }
+  /* 貼り付けた埋め込みコードが画像・動画・iframeを出力した場合に、横ずれしないようにする保険 */
+  .now-stories-feed img,
+  .now-stories-feed video,
+  .now-stories-feed iframe{
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    border: 0;
+    border-radius: var(--radius);
+  }
+  .now-stories-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .now-stories-actions .btn svg{
+    width: 18px; height: 18px;
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+  @media (max-width: 600px){
+    .now-stories-actions .btn{
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* ============================================================
      MY STORY（経歴・ストーリー / タイムライン）
      PC: 横並び（.timeline を flex-row に）
      SP: 縦並び（デフォルトは grid の2カラム：マーカー列 + 本文列）
@@ -1226,6 +1289,8 @@
   .now-grid > *,
   .now-list > *,
   .now-actions > *,
+  .now-stories-feed > *,
+  .now-stories-actions > *,
   .activities-cta-text,
   .timeline,
   .timeline-item,
@@ -1370,6 +1435,42 @@
           <a class="btn now-link-secondary" href="https://yam4k3n.github.io/glow-amusement/" target="_blank" rel="noopener noreferrer">制作したGLOW公式サイトを見る <span aria-hidden="true">↗</span></a>
           <a class="btn sns-link" href="#contact">無料制作について相談する</a>
         </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+      最新の発信（Instagram最新投稿の自動表示エリア）
+      ▼▼▼ 下の .now-stories-feed の中に、SNSフィード埋め込みサービス
+          （例：SnapWidget／LightWidget／Elfsight／Behold など）から取得した
+          埋め込みコード（<script>タグや<iframe>など）をそのまま貼り付けてください。
+          貼り付けると、Instagramに新しい投稿をするたびに、このエリアにも
+          自動的に最新の投稿が反映されます。
+          ・埋め込みサービス側の表示設定で「投稿数：3件」
+            「レイアウト：PC3列／スマホ1列」になるようにしてください
+            （設定方法はサービスによって異なります）
+          ・パスワード・APIキー・アクセストークンなどの秘密情報は、
+            このHTMLには書かず、埋め込みサービス側の管理画面でのみ設定してください
+          ・無料プランではサービス側のロゴや広告が表示される場合があるため、
+            目立たない設定・プランを選ぶことをおすすめします
+          ・表示を軽くするため、<script>タグには async か defer を、
+            <iframe>タグには loading="lazy" を付けられる場合は付けてください
+          未入力の間、このエリアは何も表示されません（空白やレイアウト崩れは起きません）。
+    ============================================================= -->
+    <div class="now-stories reveal">
+      <p class="now-stories-label en">Latest Stories</p>
+      <h3 class="now-stories-title">最新の発信</h3>
+
+      <div class="now-stories-feed" id="nowStoriesFeed"><!-- ここにSNSフィード埋め込みコードを貼り付け --></div>
+
+      <div class="now-stories-actions">
+        <a class="btn sns-link" href="https://www.instagram.com/nakashibetsu_story/?hl=ja" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          Instagramでもっと見る
+        </a>
+        <a class="btn sns-link" href="https://www.tiktok.com/@nakashibetsu_story" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v10.8a3.6 3.6 0 1 1-3.2-3.58"/><path d="M14 6.2c.9 1.9 2.7 3.1 4.6 3.3"/></svg>
+          TikTokを見る
+        </a>
       </div>
     </div>
   </div>
